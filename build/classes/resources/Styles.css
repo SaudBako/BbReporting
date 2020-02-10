@@ -1,0 +1,60 @@
+@font-face {
+    src: url("Cairo-Regular.ttf");
+}
+@font-face {
+    src: url("Cairo-Bold.ttf");
+}
+
+* {
+    -fx-font-family: "Cairo";
+}
+
+ComboBox * {
+    -fx-text-fill: black;
+}
+
+
+
+.bgDarkBlue {
+    -fx-background-color: #004f6e;
+    -fx-text-fill: #ffffff;
+}
+
+.bgDarkGrey > *, .bgDarkBlue > * {
+    -fx-text-fill: #ffffff;
+}
+
+.bgLightBlue > * {
+    -fx-text-fill: black;
+}
+
+.bgLightBlue {
+    -fx-background-color: #8fdeff;
+    -fx-text-fill: black;
+}
+
+.bgDarkGrey {
+    -fx-background-color: #3b3b39;
+    -fx-text-fill: white;
+}
+
+.bgDarkGrey:hover {
+    -fx-background-color: #4c4c4a;
+}
+
+.bgGreenBlue {
+    -fx-background-color: #6e96a2;
+    -fx-text-fill: white;
+}
+
+.bgGreenBlue:hover {
+    -fx-background-color: #7fa7b3;
+}
+
+Button {
+    -fx-cursor: hand;
+}
+
+ComboBox:first-child {
+    -fx-text-fill: white;
+}
