@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="450.0" prefWidth="400.0" prefWrapLength="600.0" styleClass="bgDarkBlue" stylesheets="@../resources/Styles.css" vgap="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reportingui.FXMLDocumentController">
+<FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="450.0" prefWidth="400.0" prefWrapLength="600.0" style="-fx-border-color: black;" styleClass="bgDarkBlue" stylesheets="@../resources/Styles.css" vgap="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reportingui.FXMLDocumentController">
    <children>
-      <HBox alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefWidth="400.0" styleClass="bgLightBlue">
+      <HBox alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefWidth="400.0" style="-fx-border-color: black; -fx-border-width: 0 0 2 0;" styleClass="bgLightBlue">
          <children>
             <VBox alignment="TOP_CENTER" prefWidth="200.0">
                <children>
@@ -76,7 +76,7 @@
             <ComboBox fx:id="plansComboBox" prefHeight="25.0" prefWidth="120.0" promptText="-اختيار-" styleClass="bgGreenBlue" visibleRowCount="2" />
          </children>
       </FlowPane>
-      <Separator prefHeight="1.0" prefWidth="360.0" />
+      <Separator prefHeight="1.0" prefWidth="360.0" style="-fx-background-color: white;" />
       <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="400.0">
          <children>
             <Label prefWidth="90.0" text="موقع المخرجات" textFill="WHITE">
@@ -88,7 +88,7 @@
             <Button onAction="#chooseOutputFolder" prefWidth="60.0" styleClass="bgGreenBlue" text="تصفح" />
          </children>
       </FlowPane>
-      <Separator prefHeight="1.0" prefWidth="360.0" />
+      <Separator prefHeight="1.0" prefWidth="360.0" style="-fx-background-color: white;" />
       <FlowPane alignment="CENTER" hgap="40.0" maxHeight="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="400.0">
          <children>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="50.0" prefWidth="80.0" styleClass="bgDarkGrey" text="تشغيل" textAlignment="CENTER">
@@ -103,7 +103,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="appStatusLabel" text="لم يبدأ">
+                  <Label id="stateLabel" fx:id="statusLabel" text="-----">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>

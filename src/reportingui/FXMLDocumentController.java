@@ -22,45 +22,33 @@ import javafx.scene.control.*;
 public class FXMLDocumentController implements Initializable {
     
     // Days
-    private String days[] = { "S", "M", "T", "W", "R" }; 
+    private String days[] = { "U", "M", "T", "W", "R" }; 
 
     // Plans
     private String plans[] = { "المواد العامة", "مواد التحضيري" };
     
     @FXML
-    private TextField odusText;
+    TextField odusText;
     @FXML
-    private TextField attendanceText;
+    TextField attendanceText;
     @FXML
-    private ComboBox daysComboBox;
+    ComboBox daysComboBox;
     @FXML
-    private ComboBox plansComboBox;
+    ComboBox plansComboBox;
     @FXML
-    private TextField outputText;
+    TextField outputText;
     @FXML
-    private Label appStatusLabel;
-        
+    Label statusLabel;
+    
     @FXML
     private void submit(ActionEvent event) {
-        appStatusLabel.setText("معالجة");
-        
-        System.out.println(attendanceText.getText()+"\n"+odusText.getText()+"\n"+daysComboBox.getValue().toString()+"\n"+(plansComboBox.getValue().toString().equals("المواد العامة") ? "A" : "B")+"\n"+outputText.getText());
-        
-        try {
-            backend.Main.Print(
+        ReportingUI.generateReport(
                 attendanceText.getText(),
                 odusText.getText(),
                 daysComboBox.getValue().toString(),
-                plansComboBox.getValue().toString().equals("المواد العامة") ? "A" : "B",
+                plansComboBox.getValue().toString(),
                 outputText.getText()
-            );
-            
-            appStatusLabel.setText("تمت العملية بنجاح");
-        } catch (Exception e) {
-            appStatusLabel.setText("حدث خطأ");
-        }
-        
-        
+        );
     }
     
     @FXML

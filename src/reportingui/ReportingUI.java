@@ -1,24 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package reportingui;
 
-import static backend.Main.Print;
-import java.io.File;
+import backend.*;
+import java.io.*;
+import java.util.ArrayList;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
 import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 
 public class ReportingUI extends Application {
     
     private static Stage mainStage;
+    
+    private static final String INITIAL = "لم يبدأ";
+    private static final String PROCESSING = "جاري المعالجة";
+    private static final String ERROR = "حدث خطأ";
+    private static final String SUCCESS = "تمت العملية بنجاح";
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,6 +29,8 @@ public class ReportingUI extends Application {
         
         stage.setScene(scene);
         stage.show();
+        
+        setState(INITIAL);
     }
     
     // @param extension must be preceded with *.
@@ -59,24 +60,30 @@ public class ReportingUI extends Application {
         } catch (Exception e) { return ""; }
     }
     
-    public static void main(String[] args) {
-        /*
+    public static void generateReport(String attendancePath, String odusPath, String day, String planName, String outputPath) {        
+      
+        setState(PROCESSING);
+        
+        String plan = planName.equals("المواد العامة") ? "A" : "B";
+        
+        System.out.println("=================");
+        System.out.println("Inputs: ");
+        System.out.println(attendancePath+"\n"+odusPath+"\n"+day+"\n"+plan+"\n"+outputPath);
+        System.out.println("=================");
+        
         try {
-            backend.Main.Print(
-            "C:\\Users\\soud5\\Desktop\\AttendeeReport_JEDDAH-EU_2020-01-30_2020-01-30 (1).csv",
-            "C:\\Users\\soud5\\Desktop\\enlezy.xlsx",
-            "W",
-            "B",
-            "C:\\Users\\soud5\\Desktop"
-            ); 
-        } catch(Exception e) {
-            System.out.println("Not so-so "+e.getMessage());
-        }*/
-        
-        launch(args); 
-        
-        
-        
+            ArrayList<Attendee> Attendees = Input.getAttendee(attendancePath);
+            ArrayList<Teacher> Teachers = Input.getTeachers(odusPath);
+            Output.write(outputPath, Attendees, Teachers, day, plan);
+            
+            setState(SUCCESS);
+        } catch (Exception e) { setState(ERROR); }      
     }
+    
+    private static void setState(String state) {
+        ((Label) mainStage.getScene().lookup("#stateLabel")).setText(state);
+    }
+    
+    public static void main(String[] args) { launch(args); }
     
 }

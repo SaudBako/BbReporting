@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ReportingUI.jar" size="450350" download="eager" />
+    <jar href="ReportingUI.jar" size="450308" download="eager" />
     <jar href="lib\commons-codec-1.9.jar" size="263965" download="eager" />
     <jar href="lib\commons-csv-1.8-sources.jar" size="53617" download="eager" />
     <jar href="lib\commons-csv-1.8.jar" size="49086" download="eager" />

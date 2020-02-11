@@ -13,8 +13,6 @@ ComboBox * {
     -fx-text-fill: black;
 }
 
-
-
 .bgDarkBlue {
     -fx-background-color: #004f6e;
     -fx-text-fill: #ffffff;
@@ -53,8 +51,4 @@ ComboBox * {
 
 Button {
     -fx-cursor: hand;
-}
-
-ComboBox:first-child {
-    -fx-text-fill: white;
 }

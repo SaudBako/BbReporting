@@ -117,7 +117,7 @@ public class Method {
         
         for(Attendee a : Attendees) {
           if(a.SessionName.contains(t.CourseNumber+"")) {
-            if(!a.AttendeeRole.equalsIgnoreCase("Participant")) doctorIsHere = true;
+            if(a.AttendeeRole.equalsIgnoreCase("Moderator")) doctorIsHere = true;
             else i++;
           }
         }
